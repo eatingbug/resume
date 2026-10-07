@@ -1,0 +1,94 @@
+# 이력서 내용. 레이아웃(_layouts/resume.html)은 이 파일만 읽는다.
+# experience·projects·ax 항목·other·education·side_projects 에서 visible: false 인 항목은 렌더링하지 않는다.
+
+name: 홍승재
+name_en: Seungjae Hong
+title: AI Engineer · LLMOps & Evaluation
+contact:
+  - label: hsj5972@naver.com
+    url: mailto:hsj5972@naver.com
+  - label: github.com/eatingbug
+    url: https://github.com/eatingbug
+
+headline: AI로 비즈니스 문제를 풀고, 운영하며 검증하고 개선하는 AI 엔지니어
+summary:
+  - 외주에 의존해 5~7일 걸리던 영어 Writing·Speaking 과제 평가를 rubric 기반 LLM 채점 파이프라인으로 자동화해, 10초대 실시간 평가로 바꿨습니다.
+  - 운영 중인 AI 응답을 모니터링하고, 데이터셋으로 성능을 평가하며, 재배포 없이 개선하는 LLMOps 체계를 구축했습니다. 이 체계로 저비용 모델을 검증하고 교체해 운영 비용을 94% 줄였습니다.
+  - 비효율을 예측하고 추적할 수 있는 시스템으로 바꿔, 사람이 반복이 아닌 의미 있는 일에 집중하게 만드는 것이 제가 일하는 이유입니다.
+
+skills:
+  - category: Languages
+    items: Python, Go
+  - category: LLM
+    items: Azure OpenAI, LangChain, prompty, Structured Output, Embedding, Prompt Engineering
+  - category: LLMOps · 평가
+    items: Langfuse (Tracing · Dataset · Annotation), LLM-as-a-judge, Human-in-the-Loop
+  - category: AI Agent
+    items: MCP, Agent Skills, Microsoft Agent Framework, Claude Code
+  - category: Backend · Infra
+    items: FastAPI, PostgreSQL, Docker, AKS, Azure Pipelines, Terraform
+  - category: ML (이전 경력)
+    items: MLflow, Temporal
+
+experience:
+  - company: 크레버스 (Creverse)
+    role: AI Engineer
+    period: 2024.05 ~ 현재
+    projects:
+      - title: LLM 기반 영어 Writing·Speaking 실시간 평가 엔진
+        bullets:
+          - 외주 평가자가 5~7일에 걸쳐 채점하던 영어 Writing·Speaking 과제를 rubric 기반 LLM 채점 파이프라인으로 자동화해, 10초대 실시간 피드백으로 전환 (LLM 채점 단계 약 10초)
+          - 17개 과제 유형, Writing 기준 월 7만~15만 건 채점 운영
+          - "Speaking: 팀원이 개발한 STT·Vision 모델 결과를 입력으로 받아 rubric 기반 LLM 채점을 담당"
+      - title: LLMOps 플랫폼 (Prompt-Lab · AI-Backend)
+        bullets:
+          - "Zero-Redeploy: prompty로 비즈니스 로직과 프롬프트를 분리해, 서버 재배포 없이 프롬프트 변경과 A/B 테스트가 가능한 구조 구축"
+          - "Langfuse 관측성: Pod 로그 대신 Trace로 장애를 추적하고, 비개발자도 응답 품질을 모니터링하도록 전환"
+          - 운영 중인 채점 결과에 LLM-as-a-judge 평가를 직접 구축해, 월 2만~5만 건의 채점 일관성을 자동으로 검증. Human-in-the-Loop Annotation으로 평가 기준 보정
+          - 성능 평가로 품질을 검증한 뒤 ROI 기준으로 경량 모델로 교체해, 해당 기능의 운영 비용 94% 절감
+  - company: ZIPIDA
+    role: Backend Engineer
+    period: 2023.02 ~ 2024.05
+    projects:
+      - title: 의료 AI 연구과제 및 수사 지원 솔루션
+        bullets:
+          - MLflow·MinIO로 모델 아티팩트 관리 체계를 구축하고, Temporal로 서빙 워크플로우의 안정성 확보
+          - 보안 정책이 적용된 사이트에서도 안정적으로 수집하는 수사 지원용 동적 크롤러 개발 (Go)
+
+ax:
+  label: 조직 AX · 크레버스
+  groups:
+    - name: 도구·환경
+      items:
+        - title: Claude Code Team 통합 도입
+          desc: 팀원마다 따로 쓰던 AI Agent 도구를 Claude Code Team으로 통합하자고 제안해 도입. 현재 엔지니어 전원이 사용
+        - title: 팀 Agent Hub(Marketplace) 구축
+          desc: 직군별 추천 Skill을 큐레이션하고, 프롬프트 개선·PR 리뷰 등 반복되는 개발 워크플로우를 Skill로 만들어 공유
+        - title: Prompt Agent → MCP·Agent Skills 전환
+          desc: 독립 서비스로 만든 Prompt Agent(Microsoft Agent Framework, Azure 호환성 기준 선정)를 운영 부담과 팀의 Agent 사용 방식을 고려해 MCP(Trace 조회·평가 기준)와 Agent Skills(개선 절차)로 재구성
+    - name: 개발 방식·문화
+      items:
+        - title: AI Agent 기반 개발 워크플로우 첫 도입
+          desc: 하네스 엔지니어링(Agent가 안정적으로 일하도록 규칙·도구·검증 환경을 설계하는 방식)으로 저장소를 구성해, ReportCard를 PRD부터 IaC·CI/CD 포함 프로덕션 배포까지 약 3주 만에 완료
+        - title: 개발 문화 전파
+          desc: AI Code Assistant 가이드로 MCP 연동 중심 개발 확산, 매일 Agent 활용 사례 공유, 회의록 자동화·문서 구조화, GitHub vs Azure DevOps 의사결정 문서 작성
+
+other:
+  - title: 제10회 대한민국 SW융합 해커톤 우수상
+    period: 2023.08
+    desc: LLM 기반 데이터 크롤링 및 RAG 시각화 솔루션 개발
+  - title: 에이치시티 (HCT) · RF Test Engineer
+    period: 2021.02 ~ 2022.05
+    desc: LabVIEW로 계측기 측정을 자동화해 수동 테스트 업무 효율화
+
+education:
+  - name: 코드스테이츠 백엔드 엔지니어링 부트캠프
+    status: 수료
+  - name: 대림대학교 전자통신과
+    status: 졸업
+
+side_projects:
+  - title: Habiquest
+    desc: 습관 실패를 시스템 설계 문제로 보는 습관 앱
+    url: https://habit-ochre-zeta.vercel.app/
+    visible: false

@@ -1,0 +1,22 @@
+title: 홍승재 이력서
+description: AI로 비즈니스 문제를 풀고, 운영하며 검증하고 개선하는 AI 엔지니어
+lang: ko
+url: https://eatingbug.github.io
+baseurl: /resume
+
+exclude:
+  - raw/
+  - prototype/
+  - scripts/
+  - tests/
+  - node_modules/
+  - vendor/
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+# jekyll serve 재빌드 때 npm run pdf 결과물을 지우지 않는다
+keep_files:
+  - resume.pdf

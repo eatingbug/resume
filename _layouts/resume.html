@@ -1,0 +1,131 @@
+{%- assign r = site.data.resume -%}
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ r.name | escape }} · {{ r.title | escape }}</title>
+  <meta name="description" content="{{ site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}">
+</head>
+<body>
+<main class="page">
+  <header class="header">
+    <div>
+      <h1>{{ r.name | escape }}</h1>
+      <div class="title">{{ r.title | escape }}</div>
+    </div>
+    <div class="contact">
+      {%- for c in r.contact %}
+      <a href="{{ c.url | escape }}">{{ c.label | escape }}</a><br>
+      {%- endfor %}
+      <a class="no-print" href="{{ '/resume.pdf' | relative_url }}" download>PDF 다운로드</a>
+    </div>
+  </header>
+
+  <section class="row" data-section="About">
+    <h2 class="label">About</h2>
+    <div>
+      <p class="headline">{{ r.headline | escape }}</p>
+      <div class="summary">
+        {%- for p in r.summary %}
+        <p>{{ p | escape }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="row" data-section="Skills">
+    <h2 class="label">Skills</h2>
+    <dl class="skills">
+      {%- for s in r.skills %}
+      <dt>{{ s.category | escape }}</dt><dd>{{ s.items | escape }}</dd>
+      {%- endfor %}
+    </dl>
+  </section>
+
+  <section class="row stacked" data-section="Experience">
+    <h2 class="label">Experience</h2>
+    {%- for j in r.experience %}
+    {%- unless j.visible == false %}
+    <div class="entry">
+      <div class="meta"><strong>{{ j.company | escape }}</strong>{{ j.role | escape }}<br>{{ j.period | escape }}</div>
+      <div>
+        {%- for p in j.projects %}
+        {%- unless p.visible == false %}
+        <div class="block">
+          <h3>{{ p.title | escape }}</h3>
+          <ul>
+            {%- for b in p.bullets %}
+            <li>{{ b | escape }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endunless %}
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endunless %}
+    {%- endfor %}
+  </section>
+
+  <section class="row stacked" data-section="조직 AX">
+    <h2 class="label">{{ r.ax.label | escape }}</h2>
+    {%- for g in r.ax.groups %}
+    {%- assign items = g.items | where_exp: "a", "a.visible != false" %}
+    {%- if items.size > 0 %}
+    <div class="entry">
+      <div class="meta"><strong>{{ g.name | escape }}</strong></div>
+      <ul class="lead-list">
+        {%- for a in items %}
+        <li><b>{{ a.title | escape }}</b> — {{ a.desc | escape }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+    {%- endfor %}
+  </section>
+
+
+  <section class="row" data-section="Other">
+    <h2 class="label">Other</h2>
+    <div>
+      {%- assign others = r.other | where_exp: "o", "o.visible != false" %}
+      {%- for o in others %}
+      <div class="block">
+        <h3>{{ o.title | escape }} <span class="dim">· {{ o.period | escape }}</span></h3>
+        <p>{{ o.desc | escape }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="row" data-section="Education">
+    <h2 class="label">Education</h2>
+    <div>
+      {%- assign edus = r.education | where_exp: "e", "e.visible != false" %}
+      {%- for e in edus %}
+      <div>{{ e.name | escape }} <span class="dim">· {{ e.status | escape }}</span></div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  {%- assign visible_side = r.side_projects | where_exp: "s", "s.visible != false" %}
+  {%- if visible_side.size > 0 %}
+  <section class="row" data-section="Side Project">
+    <h2 class="label">Side Project</h2>
+    <div>
+      {%- for s in visible_side %}
+      <div class="block">
+        <h3><a href="{{ s.url | escape }}">{{ s.title | escape }}</a></h3>
+        <p>{{ s.desc | escape }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+</main>
+</body>
+</html>

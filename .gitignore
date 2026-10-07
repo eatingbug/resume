@@ -1,0 +1,13 @@
+# 원본 자료는 공개 저장소에 올리지 않는다
+raw/
+# 디자인 시안은 prototype 브랜치에만 둔다
+prototype/
+
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+.bundle/
+node_modules/
+test-results/
+.DS_Store
