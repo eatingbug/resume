@@ -49,9 +49,10 @@ h1, h2, h3 { margin: 0; }
 .meta { font-size: 12px; color: var(--mute); line-height: 1.5; }
 .meta strong { display: block; color: var(--ink); font-size: 14px; }
 
-.block { margin-bottom: 12px; break-inside: avoid; }
+.block { margin-bottom: 12px; }
+.block li { break-inside: avoid; }
 .block:last-child { margin-bottom: 0; }
-.block h3 { font-size: inherit; font-weight: 700; }
+.block h3 { font-size: inherit; font-weight: 700; break-after: avoid; }
 .lead-list li { margin: 0 0 6px; break-inside: avoid; }
 .dim { font-weight: 400; color: var(--mute); }
 
