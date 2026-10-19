@@ -16,6 +16,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - CONTEXT.md
 
 # jekyll serve 재빌드 때 npm run pdf 결과물을 지우지 않는다
 keep_files:
