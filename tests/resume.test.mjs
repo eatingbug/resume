@@ -29,7 +29,7 @@ test("핵심 수치가 들어 있다", () => {
 });
 
 test("공개본에 민감 정보가 없다", () => {
-  for (const s of ["필리핀", "외주", "5~7일", "월 7만~15만", "$", "1,688", "010-", "creverse.com", "Habiquest"]) {
+  for (const s of ["필리핀", "외주", "5~7일", "월 7만~15만", "$", "1,688", "010-", "creverse.com", "Habiquest", "Prompt-Lab", "AI-Backend", "A/B"]) {
     assert.ok(!html.includes(s), s);
   }
 });
