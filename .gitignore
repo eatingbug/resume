@@ -11,3 +11,6 @@ vendor/
 node_modules/
 test-results/
 .DS_Store
+
+# 로컬 이슈 트래커(티켓·스펙)는 사내 정보를 담을 수 있어 공개하지 않는다
+.scratch/
