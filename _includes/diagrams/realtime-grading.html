@@ -1,0 +1,54 @@
+{%- assign claim = "제출물을 rubric 단위로 나눠 채점 항목 동시 채점 → 채점 시간 ≈ 항목 시간의 합이 아닌 가장 느린 항목 하나" -%}
+<figure class="pf-figure">
+<svg viewBox="0 0 480 548" role="img" aria-label="{{ claim }}" fill="none" stroke="currentColor" stroke-width="1.4" font-size="13" text-anchor="middle">
+  <defs>
+    <marker id="rg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" stroke="none"/></marker>
+  </defs>
+  <rect x="180" y="8" width="120" height="34" rx="6"/>
+  <text x="240" y="30" fill="currentColor" stroke="none">제출물</text>
+  <line x1="240" y1="42" x2="240" y2="78" marker-end="url(#rg-arrow)"/>
+  <text x="250" y="64" fill="currentColor" stroke="none" font-size="12" text-anchor="start">제출</text>
+  <rect x="165" y="80" width="150" height="34" rx="6"/>
+  <text x="240" y="102" fill="currentColor" stroke="none">텍스트 전처리</text>
+  <rect x="16" y="146" width="448" height="116" rx="8" stroke-dasharray="4 4" stroke-opacity=".6"/>
+  <text x="28" y="254" fill="currentColor" stroke="none" font-size="12" text-anchor="start" fill-opacity=".7">rubric 단위 workflow</text>
+  <line x1="240" y1="114" x2="95" y2="178" marker-end="url(#rg-arrow)"/>
+  <line x1="240" y1="114" x2="240" y2="178" marker-end="url(#rg-arrow)"/>
+  <line x1="240" y1="114" x2="385" y2="178" marker-end="url(#rg-arrow)"/>
+  <text x="304" y="136" fill="currentColor" stroke="none" font-size="12" text-anchor="start">항목별 동시 호출</text>
+  <rect x="35" y="180" width="120" height="34" rx="6"/>
+  <text x="95" y="202" fill="currentColor" stroke="none">채점 항목 A</text>
+  <rect x="180" y="180" width="120" height="34" rx="6"/>
+  <text x="240" y="202" fill="currentColor" stroke="none">채점 항목 B</text>
+  <rect x="325" y="180" width="120" height="34" rx="6"/>
+  <text x="385" y="202" fill="currentColor" stroke="none">채점 항목 C</text>
+  <line x1="95" y1="214" x2="240" y2="282" marker-end="url(#rg-arrow)"/>
+  <line x1="240" y1="214" x2="240" y2="282" marker-end="url(#rg-arrow)"/>
+  <line x1="385" y1="214" x2="240" y2="282" marker-end="url(#rg-arrow)"/>
+  <text x="304" y="279" fill="currentColor" stroke="none" font-size="12" text-anchor="start">스키마 검증</text>
+  <text x="176" y="279" fill="currentColor" stroke="none" font-size="12" text-anchor="end">실패 시 그 항목만 재시도</text>
+  <rect x="180" y="284" width="120" height="34" rx="6"/>
+  <text x="240" y="306" fill="currentColor" stroke="none">결과 모으기</text>
+  <line x1="240" y1="318" x2="240" y2="354" marker-end="url(#rg-arrow)"/>
+  <text x="250" y="340" fill="currentColor" stroke="none" font-size="12" text-anchor="start">피드백 반환</text>
+  <rect x="180" y="356" width="120" height="34" rx="6"/>
+  <text x="240" y="378" fill="currentColor" stroke="none">피드백</text>
+  <line x1="16" y1="414" x2="464" y2="414" stroke-opacity=".3"/>
+  <text x="16" y="440" fill="currentColor" stroke="none" font-size="12" text-anchor="start" fill-opacity=".7">채점 시간 비교 (개념도)</text>
+  <text x="16" y="467" fill="currentColor" stroke="none" text-anchor="start">순차</text>
+  <rect x="70" y="452" width="80" height="20"/>
+  <text x="110" y="467" fill="currentColor" stroke="none" font-size="12">A</text>
+  <rect x="150" y="452" width="110" height="20"/>
+  <text x="205" y="467" fill="currentColor" stroke="none" font-size="12">B</text>
+  <rect x="260" y="452" width="60" height="20"/>
+  <text x="290" y="467" fill="currentColor" stroke="none" font-size="12">C</text>
+  <text x="330" y="467" fill="currentColor" stroke="none" font-size="12" text-anchor="start">항목 시간의 합</text>
+  <text x="16" y="516" fill="currentColor" stroke="none" text-anchor="start">병렬</text>
+  <rect x="70" y="492" width="80" height="10" fill="currentColor" fill-opacity=".15"/>
+  <rect x="70" y="506" width="110" height="10" fill="currentColor" fill-opacity=".15"/>
+  <rect x="70" y="520" width="60" height="10" fill="currentColor" fill-opacity=".15"/>
+  <line x1="180" y1="486" x2="180" y2="536" class="pf-accent" stroke-width="2"/>
+  <text x="190" y="516" class="pf-accent" stroke="none" font-size="12" font-weight="600" text-anchor="start">가장 느린 항목</text>
+</svg>
+<figcaption>{{ claim }}</figcaption>
+</figure>

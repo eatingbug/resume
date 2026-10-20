@@ -75,3 +75,64 @@ h1, h2, h3 { margin: 0; }
   .skills { grid-template-columns: 1fr; }
   .skills dd { margin-bottom: 6px; }
 }
+
+/* ── 포트폴리오: 이력서 토큰을 그대로 쓰고, 규칙은 모두 .portfolio 아래에만 둔다 ── */
+.portfolio { font-size: 14.5px; line-height: 1.75; }
+.portfolio p { margin: 0 0 12px; }
+.portfolio a { color: var(--accent); text-decoration: none; }
+.portfolio a:hover { text-decoration: underline; }
+
+.portfolio .pf-head { padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.portfolio .pf-head h1 { font-size: 24px; line-height: 1.35; letter-spacing: -0.02em; word-break: keep-all; }
+.portfolio .pf-kicker, .portfolio .pf-by { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
+.portfolio .pf-by { margin-top: 4px; }
+.portfolio .pf-question { margin: 8px 0 0; color: var(--sub); }
+
+/* 목차 */
+.portfolio .pf-theme { color: var(--text); margin-bottom: 24px; }
+.portfolio .pf-cases { margin: 0 0 28px; padding-left: 1.4em; }
+.portfolio .pf-cases li { margin: 0 0 16px; }
+.portfolio .pf-cases a { font-size: 16px; font-weight: 700; }
+.portfolio .pf-cases p { margin: 2px 0 0; color: var(--sub); }
+.portfolio .pf-links, .portfolio .pf-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; }
+.portfolio .pf-nav { justify-content: space-between; margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+/* 요약 박스 */
+.portfolio .pf-summary { background: var(--desk); border-left: 3px solid var(--accent); padding: 16px 20px; margin-bottom: 28px; }
+.portfolio .pf-conclusion { font-weight: 700; font-size: 15.5px; margin-bottom: 12px; }
+.portfolio .pf-summary dl { display: grid; grid-template-columns: 64px 1fr; gap: 6px 12px; margin: 0; font-size: 13.5px; }
+.portfolio .pf-summary dt { color: var(--sub); font-weight: 600; }
+.portfolio .pf-summary dd { margin: 0; min-width: 0; }
+.portfolio .pf-summary blockquote { margin: 0 0 6px; padding-left: 10px; border-left: 2px solid var(--line); color: var(--sub); }
+.portfolio .pf-summary blockquote:last-child { margin-bottom: 0; }
+
+/* 원문 */
+.portfolio .pf-body h2 { font-size: 18px; margin: 32px 0 10px; break-after: avoid; }
+.portfolio .pf-body ul { margin: 0 0 12px; }
+.portfolio .pf-body li { margin: 4px 0; }
+.portfolio table { width: 100%; border-collapse: collapse; margin: 4px 0 16px; font-size: 13px; line-height: 1.55; }
+.portfolio th, .portfolio td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.portfolio th { color: var(--sub); font-weight: 700; border-bottom-color: var(--mute); }
+.portfolio tr { break-inside: avoid; }
+.portfolio .pf-figure { margin: 8px 0 20px; break-inside: avoid; }
+.portfolio .pf-figure svg { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; color: var(--ink); }
+.portfolio .pf-figure line.pf-accent { stroke: var(--accent); }
+.portfolio .pf-figure text.pf-accent { fill: var(--accent); }
+.portfolio .pf-figure circle.pf-accent { fill: var(--accent); stroke: var(--accent); }
+.portfolio .pf-figure figcaption { margin-top: 8px; font-size: 12.5px; color: var(--sub); text-align: center; }
+
+/* 인쇄: 목차 다음 사례마다 새 페이지 */
+@media print {
+  .portfolio { font-size: 10pt; }
+  .portfolio .case { break-before: page; }
+  .portfolio .pf-summary { background: none; border: 1px solid var(--line); border-left: 3px solid var(--accent); }
+  .portfolio .pf-figure svg { max-width: 88mm; }
+}
+
+@media (max-width: 640px) {
+  .portfolio { font-size: 15px; }
+  .portfolio .pf-summary { padding: 14px; }
+  .portfolio .pf-summary dl { grid-template-columns: 1fr; gap: 2px; }
+  .portfolio .pf-summary dd { margin-bottom: 8px; }
+  .portfolio th, .portfolio td { padding: 6px 4px; }
+}

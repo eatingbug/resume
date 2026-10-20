@@ -1,0 +1,19 @@
+{%- comment -%}
+  포트폴리오 목차: 공통 주제 + 공개된 사례 목록. 웹 목차와 인쇄용 페이지가 함께 쓴다.
+  include.absolute 이면 링크를 절대 URL로 낸다(PDF 안 링크용).
+{%- endcomment -%}
+{%- assign p = site.data.portfolio -%}
+{%- assign r = site.data.resume -%}
+<header class="pf-head">
+  <h1>{{ p.title | escape }}</h1>
+  <div class="pf-by">{{ r.name | escape }} · {{ r.title | escape }}</div>
+</header>
+<p class="pf-theme" data-portfolio="theme">{{ p.theme | escape }}</p>
+<ol class="pf-cases">
+  {%- for c in site.cases %}
+  <li data-case>
+    <a href="{% if include.absolute %}{{ c.url | absolute_url }}{% else %}{{ c.url | relative_url }}{% endif %}">{{ c.title | escape }}</a>
+    <p data-case-conclusion>{{ c.conclusion | escape }}</p>
+  </li>
+  {%- endfor %}
+</ol>

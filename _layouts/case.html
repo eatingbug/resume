@@ -1,0 +1,13 @@
+---
+layout: portfolio
+---
+{% include case.html doc=page body=content %}
+<nav class="pf-nav" data-case-nav>
+  {%- if page.previous %}
+  <a rel="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | escape }}</a>
+  {%- endif %}
+  <a rel="index" href="{{ '/portfolio/' | relative_url }}">목차</a>
+  {%- if page.next %}
+  <a rel="next" href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }} →</a>
+  {%- endif %}
+</nav>

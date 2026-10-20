@@ -1,0 +1,16 @@
+---
+layout: portfolio
+permalink: /portfolio/print/
+noindex: true
+---
+{%- comment -%} 포트폴리오 PDF용 인쇄 페이지: 목차 + 공개된 사례를 이어 붙인다. PDF 안에서 쓰이므로 링크는 절대 URL. {%- endcomment -%}
+<section class="pf-toc">
+{% include portfolio-toc.html absolute=true %}
+<nav class="pf-links">
+  <a href="{{ '/portfolio/' | absolute_url }}">웹에서 보기</a>
+  <a href="{{ '/' | absolute_url }}">이력서</a>
+</nav>
+</section>
+{%- for c in site.cases %}
+{% include case.html doc=c body=c.content %}
+{%- endfor %}

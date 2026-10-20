@@ -1,0 +1,28 @@
+{%- comment -%}
+  사례 하나: 요약 박스 + 원문(문제 → 판단 → 구현 → 결과 → 한계와 다음 단계).
+  사례 페이지와 인쇄용 페이지가 함께 쓴다. include.doc = 사례, include.body = 렌더링된 원문.
+{%- endcomment -%}
+{%- assign case_doc = include.doc -%}
+<article class="case" data-case-slug="{{ case_doc.slug }}">
+  <header class="pf-head">
+    <div class="pf-kicker">사례 {{ case_doc.order }}</div>
+    <h1>{{ case_doc.title | escape }}</h1>
+    <p class="pf-question">{{ case_doc.question | escape }}</p>
+  </header>
+  <section class="pf-summary" data-summary>
+    <p class="pf-conclusion" data-summary-item="conclusion">{{ case_doc.conclusion | escape }}</p>
+    <dl>
+      <dt>기간</dt><dd data-summary-item="period">{{ case_doc.period | escape }}</dd>
+      <dt>기술</dt><dd data-summary-item="tech">{{ case_doc.tech | escape }}</dd>
+      <dt>내 몫</dt>
+      <dd data-summary-item="mine"><ul>{% for m in case_doc.mine %}<li>{{ m | escape }}</li>{% endfor %}</ul></dd>
+      <dt>팀 몫</dt>
+      <dd data-summary-item="team"><ul>{% for t in case_doc.team %}<li>{{ t | escape }}</li>{% endfor %}</ul></dd>
+      <dt>이력서</dt>
+      <dd data-summary-item="bullets">{% for b in case_doc.bullets %}<blockquote>{{ b | escape }}</blockquote>{% endfor %}</dd>
+    </dl>
+  </section>
+  <div class="pf-body">
+{{ include.body }}
+  </div>
+</article>

@@ -23,3 +23,15 @@ exclude:
 # jekyll serve 재빌드 때 npm run pdf 결과물을 지우지 않는다
 keep_files:
   - resume.pdf
+  - portfolio.pdf
+
+# 포트폴리오 사례: 사례마다 _cases/<slug>.md 하나. published: false 인 사례는 페이지·목차·PDF·탐색에서 모두 빠진다.
+collections:
+  cases:
+    output: true
+    sort_by: order
+    permalink: /portfolio/:slug/
+
+defaults:
+  - scope: { type: cases }
+    values: { layout: case }

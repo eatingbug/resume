@@ -1,0 +1,28 @@
+{%- assign claim = "모델 × reasoning 단계 조합 비교(개념도): 품질 기준과 실시간 한도를 함께 지키는 조합 중 가장 빠른 조합 선택" -%}
+<figure class="pf-figure">
+<svg viewBox="0 0 480 300" role="img" aria-label="{{ claim }}" fill="none" stroke="currentColor" stroke-width="1.4" font-size="13" text-anchor="middle">
+  <defs>
+    <marker id="bp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" stroke="none"/></marker>
+  </defs>
+  <rect x="60" y="40" width="240" height="90" fill="currentColor" fill-opacity=".07" stroke="none"/>
+  <text x="72" y="60" fill="currentColor" stroke="none" font-size="12" text-anchor="start" fill-opacity=".7">채택 가능 구간</text>
+  <line x1="60" y1="250" x2="460" y2="250" marker-end="url(#bp-arrow)"/>
+  <line x1="60" y1="250" x2="60" y2="24" marker-end="url(#bp-arrow)"/>
+  <text x="460" y="272" fill="currentColor" stroke="none" font-size="12" text-anchor="end">응답 시간 →</text>
+  <text x="68" y="20" fill="currentColor" stroke="none" font-size="12" text-anchor="start">평가 품질 ↑</text>
+  <line x1="300" y1="40" x2="300" y2="250" stroke-dasharray="5 4"/>
+  <text x="306" y="244" fill="currentColor" stroke="none" font-size="12" text-anchor="start">실시간 한도</text>
+  <line x1="60" y1="130" x2="460" y2="130" stroke-dasharray="5 4"/>
+  <text x="456" y="148" fill="currentColor" stroke="none" font-size="12" text-anchor="end">품질 기준</text>
+  <circle cx="400" cy="60" r="6"/>
+  <text x="392" y="84" fill="currentColor" stroke="none" font-size="12">큰 reasoning 모델</text>
+  <text x="392" y="100" fill="currentColor" stroke="none" font-size="12">→ 한도 초과</text>
+  <circle cx="270" cy="72" r="6"/>
+  <circle cx="200" cy="100" r="7" class="pf-accent"/>
+  <text x="188" y="122" class="pf-accent" stroke="none" font-size="12" font-weight="600" text-anchor="end">선택</text>
+  <circle cx="150" cy="170" r="6"/>
+  <circle cx="100" cy="210" r="6"/>
+  <text x="112" y="214" fill="currentColor" stroke="none" font-size="12" text-anchor="start">작은 모델 → 품질 미달</text>
+</svg>
+<figcaption>{{ claim }}</figcaption>
+</figure>

@@ -1,0 +1,21 @@
+{%- assign r = site.data.resume -%}
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.data.portfolio.title | escape }} · {{ r.name | escape }}</title>
+  <meta name="description" content="{{ page.conclusion | default: site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}">
+</head>
+<body>
+<main class="page portfolio">
+{{ content }}
+</main>
+</body>
+</html>
