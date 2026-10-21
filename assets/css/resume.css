@@ -116,7 +116,8 @@ h1, h2, h3 { margin: 0; }
 .portfolio tr { break-inside: avoid; }
 .portfolio .pf-figure { margin: 8px 0 20px; break-inside: avoid; }
 .portfolio .pf-figure svg { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; color: var(--ink); }
-.portfolio .pf-figure line.pf-accent { stroke: var(--accent); }
+.portfolio .pf-figure line.pf-accent, .portfolio .pf-figure polyline.pf-accent { stroke: var(--accent); }
+.portfolio .pf-figure path.pf-accent { fill: var(--accent); }
 .portfolio .pf-figure text.pf-accent { fill: var(--accent); }
 .portfolio .pf-figure circle.pf-accent { fill: var(--accent); stroke: var(--accent); }
 .portfolio .pf-figure figcaption { margin-top: 8px; font-size: 12.5px; color: var(--sub); text-align: center; }

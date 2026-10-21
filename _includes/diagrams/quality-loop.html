@@ -1,0 +1,38 @@
+{%- assign claim = "운영 trace 10%의 judge 결과와 학생 문의를 사람이 재검수 → 찾은 오류 유형을 judge 기준과 Ground Truth로 되돌리는 루프" -%}
+<figure class="pf-figure">
+<svg viewBox="0 0 480 312" role="img" aria-label="{{ claim }}" fill="none" stroke="currentColor" stroke-width="1.4" font-size="13" text-anchor="middle">
+  <defs>
+    <marker id="ql-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" stroke="none"/></marker>
+    <marker id="ql-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="pf-accent" stroke="none"/></marker>
+  </defs>
+  <rect x="130" y="8" width="160" height="44" rx="6"/>
+  <text x="210" y="27" fill="currentColor" stroke="none">운영 trace</text>
+  <text x="210" y="44" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">월 약 7만~15만 건</text>
+  <line x1="210" y1="52" x2="210" y2="90" marker-end="url(#ql-arrow)"/>
+  <text x="220" y="75" fill="currentColor" stroke="none" font-size="12" text-anchor="start">10% 표본 · 채점 항목 단위</text>
+  <rect x="130" y="92" width="160" height="44" rx="6"/>
+  <text x="210" y="111" fill="currentColor" stroke="none">LLM-as-a-judge</text>
+  <text x="210" y="128" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">월 2만~5만 건</text>
+  <line x1="210" y1="136" x2="210" y2="174" marker-end="url(#ql-arrow)"/>
+  <text x="220" y="159" fill="currentColor" stroke="none" font-size="12" text-anchor="start">AI팀이 매일 일부 확인</text>
+  <rect x="130" y="176" width="160" height="44" rx="6"/>
+  <text x="210" y="195" fill="currentColor" stroke="none">Human Annotation</text>
+  <text x="210" y="212" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">AI팀 · 콘텐츠팀</text>
+  <rect x="360" y="176" width="110" height="44" rx="6"/>
+  <text x="415" y="203" fill="currentColor" stroke="none">학생 문의</text>
+  <line x1="360" y1="198" x2="292" y2="198" marker-end="url(#ql-arrow)"/>
+  <text x="326" y="190" fill="currentColor" stroke="none" font-size="12">문제 건</text>
+  <line x1="210" y1="220" x2="210" y2="258" marker-end="url(#ql-arrow)"/>
+  <text x="220" y="243" fill="currentColor" stroke="none" font-size="12" text-anchor="start">오채점 분류</text>
+  <rect x="130" y="260" width="160" height="44" rx="6"/>
+  <text x="210" y="287" fill="currentColor" stroke="none">오류 유형</text>
+  <rect x="360" y="260" width="110" height="44" rx="6"/>
+  <text x="415" y="287" fill="currentColor" stroke="none">Ground Truth</text>
+  <polyline points="130,282 36,282 36,114 128,114" class="pf-accent" stroke-width="2" marker-end="url(#ql-arrow-accent)"/>
+  <text x="44" y="190" class="pf-accent" stroke="none" font-size="12" font-weight="600" text-anchor="start">judge 기준</text>
+  <text x="44" y="206" class="pf-accent" stroke="none" font-size="12" font-weight="600" text-anchor="start">반영</text>
+  <line x1="290" y1="282" x2="358" y2="282" class="pf-accent" stroke-width="2" marker-end="url(#ql-arrow-accent)"/>
+  <text x="324" y="274" class="pf-accent" stroke="none" font-size="12" font-weight="600">반영</text>
+</svg>
+<figcaption>{{ claim }}</figcaption>
+</figure>
