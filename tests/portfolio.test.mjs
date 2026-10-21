@@ -19,7 +19,7 @@ const caseLinks = [...index.matchAll(/<li data-case>[\s\S]*?href="(\/resume\/por
 const casePath = link => `${link.slice("/resume/".length)}index.html`;
 
 test("목차가 공개된 사례를 읽는 순서대로, 한 줄 결론과 함께 링크한다", () => {
-  assert.deepEqual(caseLinks.slice(0, 2), ["/resume/portfolio/realtime-grading/", "/resume/portfolio/quality-loop/"]);
+  assert.deepEqual(caseLinks, ["/resume/portfolio/realtime-grading/", "/resume/portfolio/quality-loop/", "/resume/portfolio/prompt-cicd-gate/"]);
   for (const link of caseLinks) assert.ok(existsSync(site(casePath(link))), `없는 페이지: ${link}`);
   const items = [...index.matchAll(/<li data-case>([\s\S]*?)<\/li>/g)].map(m => m[1]);
   assert.equal(items.length, caseLinks.length);

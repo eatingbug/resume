@@ -1,0 +1,52 @@
+{%- assign claim = "staging 확인 뒤 production 승격과 label 롤백은 같은 webhook 경로로 재배포 없이 이뤄지고, 프롬프트 I/O 계약이 바뀌면 이 경로가 끊긴다" -%}
+<figure class="pf-figure">
+<svg viewBox="0 0 480 412" role="img" aria-label="{{ claim }}" fill="none" stroke="currentColor" stroke-width="1.4" font-size="13" text-anchor="middle">
+  <defs>
+    <marker id="pc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" stroke="none"/></marker>
+    <marker id="pc-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="pf-accent" stroke="none"/></marker>
+  </defs>
+  <rect x="150" y="8" width="180" height="44" rx="6"/>
+  <text x="240" y="27" fill="currentColor" stroke="none">프롬프트 변경 PR</text>
+  <text x="240" y="44" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">프롬프트 저장소</text>
+  <line x1="240" y1="52" x2="240" y2="90" marker-end="url(#pc-arrow)"/>
+  <text x="250" y="75" fill="currentColor" stroke="none" font-size="12" text-anchor="start">평가 데이터셋으로 평가</text>
+  <rect x="150" y="92" width="180" height="44" rx="6"/>
+  <text x="240" y="111" fill="currentColor" stroke="none">평가 게이트 (CI)</text>
+  <text x="240" y="128" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">임계치 · 기준 버전 · rubric 준수</text>
+  <rect x="8" y="92" width="110" height="44" rx="6"/>
+  <text x="63" y="111" fill="currentColor" stroke="none">PR 코멘트</text>
+  <text x="63" y="128" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">원인·샘플·제안</text>
+  <line x1="150" y1="114" x2="120" y2="114" marker-end="url(#pc-arrow)"/>
+  <text x="135" y="106" fill="currentColor" stroke="none" font-size="12">실패</text>
+  <polyline points="63,92 63,30 148,30" marker-end="url(#pc-arrow)"/>
+  <text x="71" y="64" fill="currentColor" stroke="none" font-size="12" text-anchor="start">수정</text>
+  <line x1="240" y1="136" x2="240" y2="190" marker-end="url(#pc-arrow)"/>
+  <text x="250" y="159" fill="currentColor" stroke="none" font-size="12" text-anchor="start">통과 → 병합</text>
+  <text x="250" y="175" fill="currentColor" stroke="none" font-size="12" text-anchor="start">staging 확인 → production</text>
+  <rect x="96" y="192" width="288" height="108" rx="8" stroke-dasharray="4 4" stroke-opacity=".6"/>
+  <text x="106" y="292" fill="currentColor" stroke="none" font-size="12" text-anchor="start" fill-opacity=".7">Langfuse</text>
+  <rect x="116" y="206" width="96" height="44" rx="6"/>
+  <text x="164" y="225" fill="currentColor" stroke="none">v1</text>
+  <text x="164" y="242" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">직전 버전</text>
+  <rect x="244" y="206" width="124" height="44" rx="6"/>
+  <text x="306" y="225" fill="currentColor" stroke="none">v2</text>
+  <text x="306" y="242" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">production</text>
+  <polyline points="306,250 306,264 164,264 164,252" class="pf-accent" stroke-width="2" marker-end="url(#pc-arrow-accent)"/>
+  <text x="235" y="284" class="pf-accent" stroke="none" font-size="12" font-weight="600">label 롤백</text>
+  <line x1="472" y1="228" x2="370" y2="228" stroke-dasharray="4 4" marker-end="url(#pc-arrow)"/>
+  <text x="428" y="218" fill="currentColor" stroke="none" font-size="12">수동 등록</text>
+  <text x="428" y="246" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">핫픽스 예외</text>
+  <line x1="240" y1="300" x2="240" y2="358" marker-end="url(#pc-arrow)"/>
+  <text x="250" y="318" fill="currentColor" stroke="none" font-size="12" text-anchor="start">webhook 알림</text>
+  <line x1="233" y1="322" x2="247" y2="336"/>
+  <line x1="247" y1="322" x2="233" y2="336"/>
+  <text x="226" y="326" fill="currentColor" stroke="none" font-size="12" text-anchor="end">I/O 계약이 바뀌면</text>
+  <text x="226" y="342" fill="currentColor" stroke="none" font-size="12" text-anchor="end">끊김 → 서버 배포</text>
+  <rect x="150" y="360" width="180" height="44" rx="6"/>
+  <text x="240" y="379" fill="currentColor" stroke="none">AI 서버</text>
+  <text x="240" y="396" fill="currentColor" stroke="none" font-size="11" fill-opacity=".7">프롬프트 I/O 계약 검사</text>
+  <text x="340" y="378" fill="currentColor" stroke="none" font-size="12" text-anchor="start" fill-opacity=".7">계약이 같으면</text>
+  <text x="340" y="394" fill="currentColor" stroke="none" font-size="12" text-anchor="start" fill-opacity=".7">재배포 없음</text>
+</svg>
+<figcaption>{{ claim }}</figcaption>
+</figure>
