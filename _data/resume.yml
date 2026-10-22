@@ -1,5 +1,6 @@
-# 이력서 내용. 레이아웃(_layouts/resume.html)은 이 파일만 읽는다.
+# 이력서 내용. 레이아웃(_layouts/resume.html)은 이 파일과, "사례 →" 링크를 위해 공개된 사례(site.cases)만 읽는다.
 # experience·projects·ax 항목·other·education·side_projects 에서 visible: false 인 항목은 렌더링하지 않는다.
+# projects 의 case 는 포트폴리오 사례 slug(_cases/<slug>.md). 그 사례가 공개됐을 때만 제목 옆에 "사례 →" 링크가 생긴다.
 
 name: 홍승재
 name_en: Seungjae Hong
@@ -34,14 +35,17 @@ experience:
     period: 2024.05 ~ 현재
     projects:
       - title: LLM 기반 영어 Writing·Speaking 실시간 평가 엔진
+        case: realtime-grading
         bullets:
           - rubric 단위로 채점 workflow를 나누고 항목을 병렬로 평가하는 구조로, 원어민 강사가 평균 3.5일 걸려 채점하던 과제 평가를 10초대 실시간 피드백으로 전환
           - 일부 과제부터 성능을 검증하며 단계적으로 확대해 2026년 초 17개 과제 유형 전체에 적용. 누적 55만 건 이상 에세이 평가·월 3만 명 이상 학생 이용 (Speaking은 STT·Vision 인식 결과를 받는 채점 단계 담당)
       - title: 채점 품질 검증 체계
+        case: quality-loop
         bullets:
           - 외부 팀 데이터로 초기 평가 데이터셋을 구축하고, 콘텐츠팀·프롬프트 엔지니어와 함께 Ground Truth를 정의
           - 엑셀 수작업 검수를 Langfuse Annotation 기반 프로세스로 바꾸자고 제안해 도입하고, 쌓인 오류 유형을 LLM-as-a-judge(채점 항목 단위 월 2만~5만 건 자동 검증)와 Ground Truth에 반영하는 개선 루프 구축. 사내 성능검수 위원회의 메인 자료로 활용
       - title: LLMOps 플랫폼
+        case: prompt-cicd-gate
         bullets:
           - 프롬프트 변경 PR마다 CI에서 기준 버전과의 비교 평가와 임계치 검사를 모두 통과해야 병합되도록 하고, 병합된 프롬프트는 Langfuse에 새 버전으로 등록한 뒤 webhook으로 AI 서버에 반영해 재배포 없이 교체
           - 운영 트래픽 표본을 채점 항목 단위로 LLM-as-a-judge 검증하고 일부를 Human Annotation으로 재검수해 운영 성능을 모니터링. Langfuse Trace로 장애 추적과 비개발자 품질 확인이 가능하도록 전환

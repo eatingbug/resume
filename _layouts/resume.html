@@ -21,6 +21,7 @@
       {%- for c in r.contact %}
       <a href="{{ c.url | escape }}">{{ c.label | escape }}</a><br>
       {%- endfor %}
+      <a href="{{ '/portfolio/' | absolute_url }}">포트폴리오</a><br>
       <a class="no-print" href="{{ '/resume.pdf' | relative_url }}" download>PDF 다운로드</a>
     </div>
   </header>
@@ -56,7 +57,9 @@
         {%- for p in j.projects %}
         {%- unless p.visible == false %}
         <div class="block">
-          <h3>{{ p.title | escape }}</h3>
+          {%- comment %} 공개되지 않은 사례는 site.cases 에 없으므로 링크도 생기지 않는다. PDF 안에서도 열리도록 절대 URL {% endcomment %}
+          {%- assign linked_case = site.cases | where: "slug", p.case | first %}
+          <h3>{{ p.title | escape }}{% if linked_case %} <a class="case-link" href="{{ linked_case.url | absolute_url }}">사례 →</a>{% endif %}</h3>
           <ul>
             {%- for b in p.bullets %}
             <li>{{ b | escape }}</li>

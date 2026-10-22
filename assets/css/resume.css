@@ -53,6 +53,8 @@ h1, h2, h3 { margin: 0; }
 .block li { break-inside: avoid; }
 .block:last-child { margin-bottom: 0; }
 .block h3 { font-size: inherit; font-weight: 700; break-after: avoid; }
+.case-link { margin-left: 4px; font-size: 12px; font-weight: 400; color: var(--mute); text-decoration: none; white-space: nowrap; }
+.case-link:hover { text-decoration: underline; }
 .lead-list li { margin: 0 0 6px; break-inside: avoid; }
 .dim { font-weight: 400; color: var(--mute); }
 
