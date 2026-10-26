@@ -47,7 +47,7 @@ experience:
       - title: LLMOps 플랫폼
         case: prompt-cicd-gate
         bullets:
-          - 프롬프트 변경 PR마다 CI에서 기준 버전과의 비교 평가와 임계치 검사를 모두 통과해야 병합되도록 하고, 병합된 프롬프트는 Langfuse에 새 버전으로 등록한 뒤 webhook으로 AI 서버에 반영해 재배포 없이 교체
+          - 프롬프트 변경 PR의 자동 평가와 사람 검토, staging E2E 테스트를 연결하고, 운영에 채택한 프롬프트는 Langfuse 버전·label과 webhook으로 서버 재배포 없이 교체·롤백하는 구조 설계·구현
           - 운영 트래픽 표본을 채점 항목 단위로 LLM-as-a-judge 검증하고 일부를 Human Annotation으로 재검수해 운영 성능을 모니터링. Langfuse Trace로 장애 추적과 비개발자 품질 확인이 가능하도록 전환
           - 성능 평가로 기능별 품질 차이를 검증해 경량 모델 교체·reasoning 단계 조정으로 비용 최적화 (모델 교체 기능 94% 절감)
   - company: ZIPIDA
@@ -69,7 +69,7 @@ ax:
         - title: 팀 Agent Hub(Marketplace) 구축
           desc: 직군별 추천 Skill을 큐레이션하고, 프롬프트 개선·PR 리뷰 등 반복되는 개발 워크플로우를 Skill로 만들어 공유
         - title: Prompt 개선 도구를 사용자별로 설계
-          desc: 콘텐츠 전문가가 실제 채점 결과 분석과 성능 테스트로 프롬프트 개선에 직접 참여하도록 Prompt Agent(Microsoft Agent Framework)를 파일럿으로 구축하고, 엔지니어용은 각자의 Agent에서 쓰는 MCP(Trace 조회·평가 기준)와 Agent Skills(개선 절차)로 재구성
+          desc: 학생 채점결과 조회·반복 패턴 파악·프롬프트 수정·성능평가를 연결한 Prompt Agent(Microsoft Agent Framework)를 파일럿으로 구축. 현재 프롬프트 엔지니어·개발자가 사용하며, 최종 변경 채택·운영 반영은 개발자가 담당. 엔지니어용 MCP(Trace 조회·평가 기준)와 Agent Skills(개선 절차)도 구성
         - title: Microsoft 365 전사 마이그레이션 참여
           desc: 사내 구독을 Microsoft 365로 통합하는 과정에서 흩어져 있던 사내 문서를 OneDrive로 모아, Copilot으로 사내 문서를 바로 다룰 수 있는 업무 환경 마련에 기여
     - name: 개발 방식·문화
