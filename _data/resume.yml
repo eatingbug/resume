@@ -42,8 +42,8 @@ experience:
       - title: 채점 품질 검증 체계
         case: quality-loop
         bullets:
-          - 외부 팀 데이터로 초기 평가 데이터셋을 구축하고, 콘텐츠팀·프롬프트 엔지니어와 함께 Ground Truth를 정의
-          - 엑셀 수작업 검수를 Langfuse Annotation 기반 프로세스로 바꾸자고 제안해 도입하고, 쌓인 오류 유형을 LLM-as-a-judge(채점 항목 단위 월 2만~5만 건 자동 검증)와 Ground Truth에 반영하는 개선 루프 구축. 사내 성능검수 위원회의 메인 자료로 활용
+          - 외부 팀 데이터로 초기 평가 데이터셋을 구축하고, 콘텐츠팀 합의 채점으로 Ground Truth를 정의
+          - 개발 단계의 엑셀 검수와 운영 단계의 Trace 수동 조회를 Langfuse Annotation 기반 검수로 전환하고, 쌓인 오류 유형을 LLM-as-a-judge(채점 항목 단위 월 2만~5만 건 자동 검증)와 Ground Truth에 반영하는 개선 루프 구축. 사내 성능검수 위원회의 메인 자료로 활용
       - title: LLMOps 플랫폼
         case: prompt-cicd-gate
         bullets:
