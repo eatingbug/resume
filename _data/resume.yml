@@ -21,7 +21,7 @@ skills:
   - category: LLM
     items: Azure OpenAI, LangChain, Structured Output
   - category: LLMOps · 평가
-    items: Langfuse, Prompt CI/CD, LLM-as-a-judge, Human-in-the-Loop
+    items: Langfuse (Tracing · Prompt Management · Dataset · Annotation), Prompt CI/CD (평가 게이트), LLM-as-a-judge, Human-in-the-Loop
   - category: AI Agent
     items: MCP, Agent Skills, Microsoft Agent Framework, Claude Code
   - category: Backend · Infra
