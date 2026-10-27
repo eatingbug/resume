@@ -13,15 +13,15 @@ contact:
 
 headline: AI로 비즈니스 문제를 풀고, 운영하며 검증하고 개선하는 AI 엔지니어
 summary:
-  - 원어민 강사가 평균 3.5일 걸려 채점하던 영어 Writing·Speaking 과제 평가를 채점 기준표(rubric) 기반 LLM 채점 파이프라인으로 자동화해, 10초대 실시간 평가로 바꿨습니다.
-  - 운영 중인 AI 응답을 모니터링하고 데이터셋으로 성능을 평가하는 LLMOps 체계를 구축하고, 프롬프트를 재배포 없이 교체할 수 있게 해 평가에서 개선까지의 주기를 짧게 만들었습니다. 이 체계로 경량 모델로도 충분한 기능들을 성능 평가로 가려내 교체했고, 교체한 기능의 비용을 94% 줄였습니다.
-  - 비효율을 예측하고 추적할 수 있는 시스템으로 바꿔, 사람이 반복이 아닌 가치 있는 일에 집중하게 만드는 것이 제가 일하는 이유입니다.
+  - 원어민 강사가 평균 3.5일 걸리던 영어 Writing·Speaking 과제 평가를 LLM으로 자동화해 10초대 실시간 피드백으로 전환했습니다.
+  - 평가·모니터링·프롬프트 배포를 연결한 LLMOps 체계를 구축하고, 성능 검증을 거쳐 경량 모델로 교체한 기능의 비용을 94% 줄였습니다.
+  - 서비스에서 조직의 반복 업무까지 개선하기 위해, 프롬프트 개선 Agent 개발과 AI Agent 기반 개발 워크플로우 도입으로 확장하고 있습니다.
 
 skills:
   - category: LLM
-    items: Azure OpenAI, LangChain, Structured Output, Embedding
+    items: Azure OpenAI, LangChain, Structured Output
   - category: LLMOps · 평가
-    items: Langfuse (Tracing · Prompt Management · Dataset · Annotation), Prompt CI/CD (평가 게이트), LLM-as-a-judge, Human-in-the-Loop
+    items: Langfuse, Prompt CI/CD, LLM-as-a-judge, Human-in-the-Loop
   - category: AI Agent
     items: MCP, Agent Skills, Microsoft Agent Framework, Claude Code
   - category: Backend · Infra
@@ -37,47 +37,40 @@ experience:
       - title: LLM 기반 영어 Writing·Speaking 실시간 평가 엔진
         case: realtime-grading
         bullets:
-          - rubric 단위로 채점 workflow를 나누고 항목을 병렬로 평가하는 구조로, 원어민 강사가 평균 3.5일 걸려 채점하던 과제 평가를 10초대 실시간 피드백으로 전환
-          - 일부 과제부터 성능을 검증하며 단계적으로 확대해 2026년 초 17개 과제 유형 전체에 적용. 누적 55만 건 이상 에세이 평가·월 3만 명 이상 학생 이용 (Speaking은 STT·Vision 인식 결과를 받는 채점 단계 담당)
+          - 채점 기준표(rubric)의 항목별 병렬 평가로 원어민 강사 채점 평균 3.5일을 10초대 피드백으로 전환
+          - 17개 과제 유형에 적용, 누적 55만 건 이상 에세이 평가·월 3만 명 이상 학생 이용. Speaking은 STT·Vision 인식 결과 이후 채점 담당
       - title: 채점 품질 검증 체계
         case: quality-loop
         bullets:
-          - 외부 팀 데이터로 초기 평가 데이터셋을 구축하고, 콘텐츠팀 합의 채점으로 Ground Truth를 정의
-          - 개발 단계의 엑셀 검수와 운영 단계의 Trace 수동 조회를 Langfuse Annotation 기반 검수로 전환하고, 쌓인 오류 유형을 LLM-as-a-judge(채점 항목 단위 월 2만~5만 건 자동 검증)와 Ground Truth에 반영하는 개선 루프 구축. 사내 성능검수 위원회의 메인 자료로 활용
+          - 평가 데이터셋·콘텐츠팀 합의 Ground Truth 구축, 수동 검수를 Langfuse Annotation으로 전환
+          - 운영 표본을 LLM-as-a-judge로 채점 항목 단위 월 2만~5만 건 검증하고 일부를 Human Annotation으로 재검수. 오류 유형을 judge 기준·Ground Truth에 반영
       - title: LLMOps 플랫폼
         case: prompt-cicd-gate
         bullets:
-          - 프롬프트 변경 PR의 자동 평가와 사람 검토, staging E2E 테스트를 연결하고, 운영에 채택한 프롬프트는 Langfuse 버전·label과 webhook으로 서버 재배포 없이 교체·롤백하는 구조 설계·구현
-          - 운영 트래픽 표본을 채점 항목 단위로 LLM-as-a-judge 검증하고 일부를 Human Annotation으로 재검수해 운영 성능을 모니터링. Langfuse Trace로 장애 추적과 비개발자 품질 확인이 가능하도록 전환
-          - 성능 평가로 기능별 품질 차이를 검증해 경량 모델 교체·reasoning 단계 조정으로 비용 최적화 (모델 교체 기능 94% 절감)
+          - 프롬프트 PR 자동 평가·사람 검토·staging E2E를 연결하고, 서버 재배포 없이 프롬프트를 교체·롤백하는 구조 설계·구현
+          - 기능별 성능 평가에 따라 경량 모델 교체·reasoning 단계 조정. 모델 교체 기능의 비용 94% 절감
   - company: ZIPIDA
     role: Software Engineer
     period: 2023.02 ~ 2024.05
     projects:
       - title: 정부 과제 (KISTI · 경찰청)
         bullets:
-          - "KISTI: 관제 로그를 분류하는 여러 ML 모델을 관리·서빙하는 플랫폼 개발 (MLflow·MinIO·Temporal). 실제 관제 현장에서 운영하며 개선"
-          - "경찰청: 수사 지원 시스템의 자료 수집용 동적 크롤러 개발 (Go). 접근 제한이 있는 사이트에서도 안정적으로 수집"
+          - "KISTI: 관제 로그 분류 ML 모델 관리·서빙 플랫폼 개발·현장 운영 (MLflow·MinIO·Temporal)"
+          - "경찰청: 수사 지원 자료 수집용 동적 크롤러 개발 (Go)"
 
 ax:
   label: 조직 AX · 크레버스 (AI Champion)
   groups:
-    - name: 도구·환경
+    - name: Agent·개발 방식
       items:
-        - title: Claude Code Team 통합 도입
-          desc: 팀원마다 따로 쓰던 AI Agent 도구를 Claude Code Team으로 통합하자고 제안해 도입. 현재 엔지니어 전원이 사용
-        - title: 팀 Agent Hub(Marketplace) 구축
-          desc: 직군별 추천 Skill을 큐레이션하고, 프롬프트 개선·PR 리뷰 등 반복되는 개발 워크플로우를 Skill로 만들어 공유
-        - title: Prompt 개선 도구를 사용자별로 설계
-          desc: 학생 채점결과 조회·반복 패턴 파악·프롬프트 수정·성능평가를 연결한 Prompt Agent(Microsoft Agent Framework)를 파일럿으로 구축. 현재 프롬프트 엔지니어·개발자가 사용하며, 최종 변경 채택·운영 반영은 개발자가 담당. 엔지니어용 MCP(Trace 조회·평가 기준)와 Agent Skills(개선 절차)도 구성
-        - title: Microsoft 365 전사 마이그레이션 참여
-          desc: 사내 구독을 Microsoft 365로 통합하는 과정에서 흩어져 있던 사내 문서를 OneDrive로 모아, Copilot으로 사내 문서를 바로 다룰 수 있는 업무 환경 마련에 기여
-    - name: 개발 방식·문화
+        - title: 프롬프트 개선 Agent 개발
+          desc: 채점 결과 조회·수정·성능 평가를 연결한 파일럿 구축. 프롬프트 엔지니어·개발자가 사용하며 운영 반영은 개발자가 담당
+        - title: AI Agent 기반 개발 워크플로우 도입
+          desc: Agent용 규칙·도구·검증 환경을 구성해 ReportCard를 PRD부터 IaC·CI/CD 포함 프로덕션 배포까지 약 3주 만에 단독 완료
+    - name: 조직 활용 확산
       items:
-        - title: AI Agent 기반 개발 워크플로우 첫 도입
-          desc: Agent가 안정적으로 일하도록 규칙·도구·검증 환경을 갖춘 저장소를 구성해, ReportCard를 PRD부터 IaC·CI/CD를 포함한 프로덕션 배포까지 약 3주 만에 혼자 완료. 연동하는 팀에는 API 문서와 예제를 제공
-        - title: 개발 문화 전파
-          desc: AI Code Assistant 가이드를 작성해 팀의 개발 방식을 MCP 연동 중심으로 바꾸고, 매일 Agent 활용 사례와 기술 소식을 공유
+        - title: 도구 도입·워크플로우 공유
+          desc: Claude Code Team 통합 도입 제안·엔지니어 전원 사용. Agent Hub 구축, 프롬프트 개선·PR 리뷰 Skill과 개발 가이드 공유
 
 other:
   - title: 제10회 대한민국 SW융합 해커톤 우수상
