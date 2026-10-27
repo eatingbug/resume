@@ -66,6 +66,7 @@ h1, h2, h3 { margin: 0; }
   .page { margin: 0; padding: 0; max-width: none; box-shadow: none; }
   .no-print { display: none !important; }
   a { text-decoration: none; }
+  .page:not(.portfolio) [data-section="조직 AX"] { break-inside: avoid; }
 }
 
 /* 모바일 */
