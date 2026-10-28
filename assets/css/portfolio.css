@@ -1,0 +1,88 @@
+/* 웹: 근거 탐색. 인쇄: 같은 원문을 한 열로 읽는다. */
+.portfolio.page { max-width: 1120px; padding: 28px 52px 64px; box-shadow: none; font-size: 16px; line-height: 1.85; }
+.portfolio p, .portfolio li { word-break: keep-all; overflow-wrap: anywhere; }
+.portfolio .pf-site-nav { display: flex; justify-content: space-between; gap: 16px; padding: 0 0 22px; margin-bottom: 48px; border-bottom: 1px solid var(--line); font-size: 12px; }
+.portfolio .pf-site-nav span { color: var(--sub); }
+.portfolio .case-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; padding-bottom: 40px; margin-bottom: 40px; border-bottom: 2px solid var(--ink); }
+.portfolio .case-head h1 { font-size: 36px; line-height: 1.3; }
+.portfolio .pf-kicker { margin-bottom: 14px; }
+.portfolio .pf-question { margin-top: 18px; font-size: 14px; }
+.portfolio .pf-conclusion { align-self: center; font-size: 17px; font-weight: 400; margin: 0; }
+.portfolio .case-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; }
+.portfolio .case-rail { align-self: start; position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; scrollbar-width: thin; padding-right: 14px; font-size: 12px; }
+.portfolio .case-toc { display: flex; flex-direction: column; gap: 10px; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.portfolio .case-details dl { margin: 0; }
+.portfolio .case-details dt { color: var(--sub); margin: 22px 0 6px; font-weight: 600; }
+.portfolio .case-details dd { margin: 0; }
+.portfolio .case-details li { margin: 0 0 12px; }
+.portfolio .case-details blockquote { margin: 0 0 14px; padding-left: 10px; border-left: 2px solid var(--line); color: var(--sub); }
+.portfolio .case-resume-link { display: inline-block; margin-top: 12px; }
+.portfolio .case-contribution, .portfolio .case-mobile-toc { display: none; }
+.portfolio .pf-body { min-width: 0; }
+.portfolio .pf-body h2 { font-size: 24px; margin: 52px 0 24px; scroll-margin-top: 24px; }
+.portfolio .pf-body h2:first-child { margin-top: 0; }
+.portfolio .pf-body h3 { font-size: 17px; margin: 30px 0 14px; }
+.portfolio .pf-body p { margin-bottom: 22px; }
+.portfolio .pf-body ul { margin-bottom: 24px; }
+.portfolio .pf-body li { margin: 0 0 16px; }
+.portfolio table { font-size: 14px; line-height: 1.8; margin: 24px 0 32px; }
+.portfolio th, .portfolio td { padding: 16px 12px; word-break: keep-all; overflow-wrap: anywhere; }
+.portfolio th { background: #f4f5f8; font-size: 12px; }
+.portfolio th:first-child { width: 22%; }
+.portfolio .pf-figure { margin: 30px 0; }
+.portfolio .pf-figure svg { max-width: 580px; }
+.portfolio .pf-cases { padding-left: 1.5em; max-width: 760px; }
+.portfolio .pf-cases li { padding-left: 8px; margin-bottom: 30px; }
+.portfolio .pf-cases a { font-size: 19px; }
+.portfolio .pf-cases p { margin-top: 8px; }
+@media (max-width: 760px) {
+  .portfolio.page { padding: 26px 22px 48px; margin: 0; font-size: 16px; }
+  .portfolio .pf-site-nav { margin-bottom: 32px; }
+  .portfolio .pf-site-nav span { display: none; }
+  .portfolio .case-head { grid-template-columns: 1fr; gap: 22px; padding-bottom: 28px; margin-bottom: 24px; }
+  .portfolio .case-head h1 { font-size: 30px; }
+  .portfolio .case-layout { display: flex; flex-direction: column; gap: 32px; }
+  .portfolio .case-mobile-toc { display: block; }
+  .portfolio .case-mobile-toc .case-toc { flex-direction: row; flex-wrap: wrap; gap: 10px 16px; }
+  .portfolio .case-rail { position: static; max-height: none; overflow: visible; padding: 24px 0 0; border-top: 1px solid var(--line); order: 1; font-size: 14px; }
+  .portfolio .case-rail .case-toc { display: none; }
+  .portfolio table { font-size: 13px; }
+  .portfolio th, .portfolio td { padding: 12px 7px; }
+  .portfolio .pf-body h2 { font-size: 22px; }
+}
+@media print {
+  @page { size: A4; margin: 17mm 18mm 18mm; }
+  .portfolio.page { margin: 0; padding: 0; max-width: none; font-size: 10pt; line-height: 1.68; }
+  .portfolio .pf-site-nav, .portfolio .pf-nav, .portfolio .case-toc, .portfolio .case-mobile-toc { display: none; }
+  .portfolio .case-head { display: block; border-bottom: 0; padding: 0; margin-bottom: 5mm; }
+  .portfolio .case-head h1 { font-size: 25pt; }
+  .portfolio .pf-kicker { font-size: 8pt; margin-bottom: 3mm; }
+  .portfolio .pf-question { font-size: 9pt; margin: 3mm 0; }
+  .portfolio .pf-conclusion { font-size: 10.5pt; line-height: 1.68; margin: 5mm 0; }
+  .portfolio .case-contribution { display: block; border-left: 2px solid var(--accent); background: #f4f6fa; padding: 4mm 5mm; margin: 5mm 0 7mm; break-inside: avoid; }
+  .portfolio .case-contribution-label { font-weight: 700; margin-bottom: 2mm; }
+  .portfolio .case-contribution p { margin: 0; }
+  .portfolio .case-layout { display: flex; flex-direction: column; gap: 0; }
+  .portfolio .case-rail { order: 1; position: static; max-height: none; overflow: visible; padding: 4mm 0 0; margin-top: 5mm; border-top: 1px solid var(--line); font-size: 8.5pt; }
+  .portfolio .case-details dl { display: grid; grid-template-columns: 12mm 1fr; gap: 2mm 3mm; }
+  .portfolio .case-details { break-inside: avoid; }
+  .portfolio .case-details dt { margin: 0; }
+  .portfolio .case-details li { margin-bottom: 2mm; }
+  .portfolio .case-quotes, .portfolio [data-summary-item="bullets"] { display: none; }
+  .portfolio .case-resume-link { font-size: 8pt; }
+  .portfolio .pf-body h2 { font-size: 15pt; margin: 6mm 0 4mm; }
+  .portfolio .pf-body h3 { font-size: 10pt; margin: 5mm 0 2mm; }
+  .portfolio .pf-body p { margin-bottom: 3mm; }
+  .portfolio .pf-body ul { margin-bottom: 4mm; }
+  .portfolio .pf-body li { margin: 0 0 3mm; break-inside: avoid; }
+  .portfolio .pf-body .print-page-start { break-before: page; margin-top: 0; }
+  .portfolio table { font-size: 8.5pt; line-height: 1.65; table-layout: fixed; margin: 4mm 0 6mm; }
+  .portfolio th, .portfolio td { padding: 2.5mm 2mm; }
+  .portfolio th { font-size: 8pt; }
+  .portfolio thead { display: table-header-group; }
+  .portfolio .pf-figure { margin: 4mm 0 5mm; }
+  .portfolio .pf-figure svg { max-width: 125mm; max-height: 85mm; }
+  .portfolio .pf-figure figcaption { font-size: 8pt; }
+  .portfolio .pf-cases { max-width: none; }
+  .portfolio .pf-cases a { font-size: 13pt; }
+}

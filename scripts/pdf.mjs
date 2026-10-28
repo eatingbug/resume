@@ -48,7 +48,14 @@ try {
       return document.fonts.check(font, "가");
     }, FONT);
     if (!fontLoaded) throw new Error(`Pretendard 웹폰트를 불러오지 못했습니다: ${target.path}`);
-    await page.pdf({ path: join(SITE, target.out), format: "A4", preferCSSPageSize: true, printBackground: true });
+    await page.pdf({
+      path: join(SITE, target.out), format: "A4", preferCSSPageSize: true, printBackground: true,
+      ...(target.out === "portfolio.pdf" ? {
+        displayHeaderFooter: true,
+        headerTemplate: "<span></span>",
+        footerTemplate: '<div style="width:100%;text-align:center;font-size:9px;color:#666"><span class="pageNumber"></span> / <span class="totalPages"></span></div>',
+      } : {}),
+    });
     await page.close();
     console.log(`wrote _site/${target.out}`);
   }

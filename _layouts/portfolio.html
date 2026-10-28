@@ -12,9 +12,17 @@
   {%- endif %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <link rel="stylesheet" href="{{ '/assets/css/resume.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
 </head>
 <body>
 <main class="page portfolio">
+{%- if page.collection == 'cases' %}
+<nav class="pf-site-nav" aria-label="사이트">
+  <a href="{{ '/portfolio/' | relative_url }}">← 포트폴리오</a>
+  <span>{{ r.name | escape }} · {{ r.title | escape }}</span>
+  <a href="{{ '/' | relative_url }}">이력서 ↗</a>
+</nav>
+{%- endif %}
 {{ content }}
 </main>
 </body>
