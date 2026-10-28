@@ -32,13 +32,21 @@ const sectionsOf = html => [...html.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map(m =
 for (const [n, link] of caseLinks.entries()) {
   const html = read(casePath(link));
 
-  test(`사례 ${link}: 요약 박스 다음에 문제 → 판단 → 구현 → 결과 → 한계와 다음 단계가 순서대로 나온다`, () => {
+  test(`사례 ${link}: 결론과 역할 분담이 있고, 본문 다섯 섹션의 순서를 유지한다`, () => {
     for (const item of ["conclusion", "period", "tech", "mine", "team", "bullets"]) {
       assert.match(html, new RegExp(`data-summary-item="${item}"[^>]*>\\s*(<ul>\\s*<li>|<blockquote>)?[^<\\s]`), item);
     }
     assert.match(html, /data-summary-item="bullets"[^>]*>\s*<blockquote>/);
     assert.deepEqual(sectionsOf(html), SECTIONS);
     assert.ok(html.indexOf("data-summary") < html.indexOf("<h2"), "요약 박스가 문제보다 앞에 있어야 한다");
+  });
+
+  test(`사례 ${link}: 본문 목차가 실제 섹션을 가리키고, 인쇄용 기여 요약이 있다`, () => {
+    const nav = html.match(/<nav class="case-toc"[\s\S]*?<\/nav>/)?.[0] ?? "";
+    const anchors = [...nav.matchAll(/href="#([^"]+)"/g)].map(m => m[1]);
+    assert.equal(anchors.length, SECTIONS.length);
+    for (const id of anchors) assert.ok(html.includes(`id="${id}"`), `없는 섹션: ${id}`);
+    assert.match(html, /class="case-contribution"[\s\S]*?<p>\S[^<]+<\/p>/);
   });
 
   test(`사례 ${link}: 구현 섹션에 다이어그램이 있고, 모든 다이어그램은 figcaption이 있는 인라인 SVG다`, () => {
@@ -71,9 +79,15 @@ test("인쇄용 페이지가 목차 뒤에 공개된 사례를 같은 순서로 
   assert.match(print, /data-portfolio="theme"/);
   const slugs = [...print.matchAll(/data-case-slug="([^"]+)"/g)].map(m => `/resume/portfolio/${m[1]}/`);
   assert.deepEqual(slugs, caseLinks);
+  assert.ok(!print.includes('class="case-toc"'), "인쇄용 문서에는 웹 목차를 넣지 않는다");
   const hrefs = [...print.matchAll(/<a\b[^>]*href="([^"]*)"/g)].map(m => m[1]);
   assert.ok(hrefs.length > 0);
   for (const href of hrefs) assert.match(href, /^https:\/\/eatingbug\.github\.io\/resume\//, href);
+});
+
+test("일반 빌드는 로컬 시안과 생성한 전달용 파일을 공개하지 않는다", () => {
+  assert.ok(!existsSync(site("prototype/")));
+  assert.ok(!existsSync(site("output/")));
 });
 
 test("포트폴리오 PDF가 생성되고, 목차 한 페이지에 사례마다 최소 한 페이지가 더해진다", () => {

@@ -1,16 +1,30 @@
 {%- comment -%}
-  사례 하나: 요약 박스 + 원문(문제 → 판단 → 구현 → 결과 → 한계와 다음 단계).
+  같은 원문으로 웹의 탐색형 배치와 PDF의 한 열 배치를 제공한다.
   사례 페이지와 인쇄용 페이지가 함께 쓴다. include.doc = 사례, include.body = 렌더링된 원문.
 {%- endcomment -%}
 {%- assign case_doc = include.doc -%}
 <article class="case" data-case-slug="{{ case_doc.slug }}">
-  <header class="pf-head">
+  <header class="pf-head case-head" data-summary>
+    <div>
     <div class="pf-kicker">사례 {{ case_doc.order }}</div>
     <h1>{{ case_doc.title | escape }}</h1>
     <p class="pf-question">{{ case_doc.question | escape }}</p>
-  </header>
-  <section class="pf-summary" data-summary>
+    </div>
     <p class="pf-conclusion" data-summary-item="conclusion">{{ case_doc.conclusion | escape }}</p>
+  </header>
+  <aside class="case-contribution">
+    <div class="case-contribution-label">내 기여</div>
+    <p>{{ case_doc.contribution | escape }}</p>
+  </aside>
+  {%- unless include.absolute %}
+  <div class="case-mobile-toc">{% include case-toc.html %}</div>
+  {%- endunless %}
+  <div class="case-layout">
+  <aside class="case-rail">
+    {%- unless include.absolute %}
+    {% include case-toc.html %}
+    {%- endunless %}
+    <section class="case-details" aria-label="기여 범위와 기술">
     <dl>
       <dt>기간</dt><dd data-summary-item="period">{{ case_doc.period | escape }}</dd>
       <dt>기술</dt><dd data-summary-item="tech">{{ case_doc.tech | escape }}</dd>
@@ -18,11 +32,20 @@
       <dd data-summary-item="mine"><ul>{% for m in case_doc.mine %}<li>{{ m | escape }}</li>{% endfor %}</ul></dd>
       <dt>팀 몫</dt>
       <dd data-summary-item="team"><ul>{% for t in case_doc.team %}<li>{{ t | escape }}</li>{% endfor %}</ul></dd>
-      <dt>이력서</dt>
+      <dt class="case-quotes">이력서</dt>
       <dd data-summary-item="bullets">{% for b in case_doc.bullets %}<blockquote>{{ b | escape }}</blockquote>{% endfor %}</dd>
     </dl>
-  </section>
+    <a class="case-resume-link" href="{{ '/' | absolute_url }}">이력서 원문 보기 ↗</a>
+    </section>
+  </aside>
   <div class="pf-body">
-{{ include.body }}
+{%- assign case_body = include.body -%}
+{%- for heading in case_doc.print_breaks -%}
+  {%- capture before -%}id="{{ heading }}"{%- endcapture -%}
+  {%- capture after -%}class="print-page-start" id="{{ heading }}"{%- endcapture -%}
+  {%- assign case_body = case_body | replace: before, after -%}
+{%- endfor -%}
+{{ case_body }}
+  </div>
   </div>
 </article>

@@ -5,6 +5,7 @@ url: https://eatingbug.github.io
 baseurl: /resume
 
 exclude:
+  - output/
   - raw/
   - prototype/
   - scripts/

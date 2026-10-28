@@ -12,5 +12,5 @@ noindex: true
 </nav>
 </section>
 {%- for c in site.cases %}
-{% include case.html doc=c body=c.content %}
+{% include case.html doc=c body=c.content absolute=true %}
 {%- endfor %}
