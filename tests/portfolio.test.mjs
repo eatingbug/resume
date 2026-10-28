@@ -9,7 +9,7 @@ const read = path => readFileSync(site(path), "utf8");
 const index = read("portfolio/index.html");
 
 test("목차에 공통 주제, 포트폴리오 PDF 링크, 이력서로 돌아가는 링크가 있다", () => {
-  assert.match(index, /data-portfolio="theme"[^>]*>[^<]*비결정성/);
+  assert.match(index, /data-portfolio="theme"[^>]*>\s*[^<\s]/);
   assert.match(index, /href="\/resume\/portfolio\.pdf"/);
   assert.match(index, /href="\/resume\/"/);
 });

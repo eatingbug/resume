@@ -2,7 +2,7 @@
 title: rubric 기반 실시간 채점 파이프라인
 slug: realtime-grading
 order: 1
-question: 10초 안에 응답해야 하는 LLM 채점을 운영에서 어떻게 믿을 수 있게 만들었나
+question: LLM 채점을 10초대에 처리하면서, 출력 실패에는 어떻게 대응했나
 conclusion: LLM 판단 범위 축소, 채점 항목 단위 분할·검증·재시도 → 평균 3.5일 과제 평가를 10초대 실시간 피드백으로 운영
 period: 2024.05 ~ 현재
 tech: Azure OpenAI, Structured Output, FastAPI, Langfuse, LangChain(초기 버전)
@@ -61,6 +61,8 @@ bullets:
 - **항목 단위 재시도:** 출력 검증 실패 시 그 채점 항목만 재호출 → 제출물 전체 실패 방지
 - **Speaking 범위:** STT·Vision 인식 결과를 받는 채점 단계까지 담당
 - **단계적 확대:** 일부 과제부터 적용 → 성능 확인 후 확대 (과제마다 rubric·답안 분포가 다름)
+
+출력 형식을 검증하고 재시도하는 것은 채점 결과를 반환하기 위한 처리다. 반환한 결과가 rubric에 맞는지는 별도로 검증해야 했다. [사례 2]({{ '/portfolio/quality-loop/' | absolute_url }})에서는 개발과 운영의 오채점을 발견하고 개선한 과정을 다룬다.
 
 ## 결과
 
