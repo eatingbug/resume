@@ -3,7 +3,7 @@ title: Prompt CI/CD 평가 게이트
 slug: prompt-cicd-gate
 order: 3
 question: 채점 품질을 확인하면서, 프롬프트를 서버 재배포 없이 어떻게 바꿨나
-conclusion: 프롬프트를 서버에서 분리했다. 변경할 때는 PR 자동 평가와 사람 검토, staging E2E 테스트를 거친다. 채택한 프롬프트는 Langfuse 버전·label과 webhook으로 서버 재배포 없이 교체하거나 되돌린다.
+conclusion: 프롬프트를 서버에서 분리했다. 대신 변경은 PR 자동 평가와 사람 검토, staging E2E 테스트를 거치게 했다. 채택한 프롬프트는 Langfuse 버전·label과 webhook으로 서버 재배포 없이 교체하거나 되돌린다.
 contribution: "프롬프트를 서버 코드에서 분리하고, 변경 PR의 자동 평가를 설계·구현했다. Langfuse 버전·label과 webhook으로 프롬프트를 교체하고 되돌리는 구조를 만들었다."
 print_breaks: ["판단", "구현", "ai-agent-파일럿", "한계와-다음-단계"]
 period: 2024.05 ~ 현재

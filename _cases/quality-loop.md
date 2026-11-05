@@ -3,7 +3,7 @@ title: 채점 품질 검증 루프
 slug: quality-loop
 order: 2
 question: "몇 건을 눈으로 확인하던 검수에서, 개발과 운영의 채점 품질을 측정하기까지"
-conclusion: "개발에서는 AI 점수를 Ground Truth와 비교했다. 운영에서는 채점 결과 일부를 LLM-as-a-judge로 확인하고, 그 판정 중 일부를 사람이 다시 검수했다. 검수에서 찾은 오류를 바탕으로 평가 데이터셋과 판정 기준을 고쳤다."
+conclusion: "개발에서는 AI 점수를 Ground Truth와 비교했다. 운영에서는 채점 결과 일부를 LLM-as-a-judge로 확인하고, 그 판정 중 일부를 사람이 다시 검수했다. 검수에서 찾은 오류는 다시 평가 데이터셋과 판정 기준을 고치는 데 썼다."
 contribution: "평가 데이터셋과 품질 지표를 만들고, 운영 trace의 10%를 judge로 검증하는 절차를 설계했다. 콘텐츠팀 검수를 Langfuse로 옮기는 일을 주도했고, AI팀에서 judge 결과를 재검수하며 프롬프트를 개선했다."
 print_breaks: ["판단", "운영-단계", "결과", "한계와-다음-단계"]
 period: 2024.05 ~ 현재
