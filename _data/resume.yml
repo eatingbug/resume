@@ -43,7 +43,7 @@ experience:
         case: quality-loop
         bullets:
           - 평가 데이터셋·콘텐츠팀 합의 Ground Truth 구축, 수동 검수를 Langfuse Annotation으로 전환
-          - 운영 표본을 LLM-as-a-judge로 채점 항목 단위 월 2만~5만 건 검증하고 일부를 Human Annotation으로 재검수. 오류 유형을 judge 기준·Ground Truth에 반영
+          - 범용 평가 지표 대신 오류 분석으로 정의한 오류 유형을 LLM-as-a-judge가 판정하게 해 운영 표본을 채점 항목 단위 월 2만~5만 건 검증하고, 일부를 Human Annotation으로 재검수해 judge 기준·Ground Truth에 반영
       - title: LLMOps 플랫폼
         case: prompt-cicd-gate
         bullets:
