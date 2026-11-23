@@ -77,12 +77,16 @@ rubric과 Ground Truth에 비춰 틀린 채점 결과가 나온 채점 항목. j
 _Avoid_: 오류(시스템 장애와 혼동), 채점 실패
 
 **오류 유형**:
-오채점을 원인별로 묶은 분류. AI팀과 콘텐츠팀이 협의해 정한다. judge와 Human Annotation이 같은 분류를 쓰며, judge 기준·Ground Truth·프롬프트를 고치는 근거가 된다.
+오채점을 원인별로 묶은 분류. AI팀이 운영 trace와 학생 문의 Annotation을 읽는 오류 분석(error analysis)으로 초안을 만들고, 콘텐츠팀과 협의해 확정한다. judge와 Human Annotation이 같은 분류를 쓰며, judge 기준·Ground Truth·프롬프트를 고치는 근거가 된다.
 _Avoid_: 버그 유형, 실패 케이스
 
 **judge 기준**:
-LLM-as-a-judge가 채점 항목을 오채점으로 판정하는 규칙.
-_Avoid_: 평가 기준(rubric과 혼동), 수용 기준
+LLM-as-a-judge가 채점 항목마다 오채점 여부를 판정하고, 오채점이면 오류 유형과 reason을 내놓게 하는 규칙. 범용 평가 지표(DeepEval correctness 등)의 점수가 아니라 오류 유형을 판정한다.
+_Avoid_: 평가 기준(rubric과 혼동), 수용 기준, 평가 지표(범용 점수와 혼동)
+
+**judge 정밀도**:
+judge가 오채점으로 판정한 건 중 Human Annotation이 동의한 비율. 사람은 judge가 정상으로 넘긴 건을 보지 않으므로, judge의 TPR·TNR은 아니다.
+_Avoid_: judge-사람 일치율, judge 정확도
 
 **수용 기준**:
 어느 품질까지 운영에 받아들일지 팀이 협의해 정한 기준. 알림·평가 게이트의 임계치는 이것을 숫자로 옮긴 값이다.
